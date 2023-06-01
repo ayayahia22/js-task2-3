@@ -1,0 +1,53 @@
+* {
+    
+    box-sizing: border-box;
+}
+
+
+
+    body {
+        display: flex;   
+        justify-content: center;   
+        margin: 30px 0;
+        height: 100vh;
+        background-color: #eee;
+    }
+    
+    
+
+    
+    
+
+h1 {
+    color: green;
+    font-size: 42px;
+    line-height: 7px;
+    margin-left: 20%;
+   
+}
+
+
+
+.taskName,
+.priority {
+    width:300px;
+    height: 25px;
+    margin-top: 30px;
+    margin-bottom: 10px;
+    
+}
+
+
+
+.output {
+    width: 730px;
+    width: 730px;
+  margin-left: -22px;
+    color: green
+}
+
+.click {
+    background-color: green;
+    padding: 2px 8px;
+    color: white;
+}
