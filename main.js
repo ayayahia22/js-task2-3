@@ -27,25 +27,34 @@ const addTaskToTable = function (task) {
   row.insertCell().innerHTML = table.rows.length;
   row.insertCell().innerHTML = task.name;
   row.insertCell().innerHTML = task.priority;
-  row.insertCell().innerHTML = `<button class="btn-edit" data-id="" onclick="editrow(this)">edit</button>`;
-  row.insertCell().innerHTML = `<button class="btn-delete" ="" onclick="deleteRow(this)">Delete</button>`;
+  row.insertCell().innerHTML = '<button><a class="dlt" onClick="onDelete(this)">Delete</a></button>';
+  row.insertCell().innerHTML = '<button><a class="edt" onClick="onEdit(this)">Edit</a></button>';
 };
 
 
-function deleteRow(){
-  let forDelete = this.parentElement
-  tasks.removeChild(forDelete);
+function sortTable() {
+  tasks.sort((a, b) => {
+    return b.priority - a.priority;
+  });
+  addTaskToTable();
 };
 
 
 
-function editrow() {
-  let forEdit = this.parentElement;
+function onDelete() {
+  if (confirm('Are you sure to delete this record ?')) {
+      var selectdelete = document.querySelector("a.dlt");
+      selectdelete = selectdelete.parentElement.parentElement.parentElement.remove(0);
+  }
+}
+function onEdit() {
+  var edit = document.querySelector("a.edt");
   let input = document.createElement('input');
   input.type = 'text';
   input.value = 
 
-  forEdit.replaceWith(input);
-
-  editrow.textContent = 'save';
+  edit.replaceWith(input);
+  
 }
+
+
