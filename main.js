@@ -14,6 +14,15 @@ const addTask = function () {
  
 };
 
+class task {
+  constructor(TaskName, priority) { 
+      this.name = TaskName; 
+      this.priority = priority;
+      
+  }
+}
+
+
 function validation(task) {
   if (task.name.trim().length > 50 || parseInt(task.priority.trim()) < 1) {
     alert("Please enter a valid data");
@@ -29,6 +38,7 @@ const addTaskToTable = function (task) {
   row.insertCell().innerHTML = task.priority;
   row.insertCell().innerHTML = '<button><a class="dlt" onClick="onDelete(this)">Delete</a></button>';
   row.insertCell().innerHTML = '<button><a class="edt" onClick="onEdit(this)">Edit</a></button>';
+  row.insertCell().innerHTML = '<input type="checkbox" name="checkbox" id="checkbox" onClick="deleteItchecked(this)"></input>';
 };
 
 
@@ -44,7 +54,7 @@ function sortTable() {
 function onDelete() {
   if (confirm('Are you sure to delete this record ?')) {
       var selectdelete = document.querySelector("a.dlt");
-      selectdelete = selectdelete.parentElement.parentElement.parentElement.remove(0);
+      selectdelete = selectdelete.parentElement.parentElement.parentElement.remove();
   }
 }
 function onEdit() {
@@ -57,4 +67,10 @@ function onEdit() {
   
 }
 
+function deleteItchecked(){
+
+          var selectbox = document.querySelector("#checkbox");
+          selectbox = selectbox.parentElement.parentElement.remove();
+      }
+  
 
